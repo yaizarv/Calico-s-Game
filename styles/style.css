@@ -1,0 +1,221 @@
+.header {
+    width: 100%;
+}
+.footer {
+    width: 100%;
+    position: absolute;
+    margin-top: 850px;
+}
+.black-background {
+    background-color: black;
+    width: 100%;
+    height: 850px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.pink-background {
+    background-color: #f98aa2;
+    width: 800px;
+    height: 500px;
+    position: relative;
+}
+#title {
+    color: white;
+    text-align: left;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 100px;
+    margin-left: 50px;
+    line-height: 40px;
+}
+.subtitle {
+    color: white;
+    text-align: left;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 50px;
+    line-height: 30px;
+}
+.calico {
+    position: relative;
+    margin-left: 515px;
+    margin-top: -225px;
+    width: 220px;
+}
+#btn {
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    margin-left: 50px;
+    margin-top: 40px;
+    border-radius: 30px;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+} 
+.game-1 {
+    width: 25%;
+    height: 75%;
+    margin-left: 50px;
+    margin-top: 55px;
+    background-color: #f98aa2;
+    position: relative;
+    border: 2px solid white;
+}
+#btn-arkanoid {
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 30px;
+    margin-top: 100px;
+
+}
+.game-2 {
+    width: 25%;
+    height: 75%;
+    margin-left: 300px;
+    margin-top: -380px;
+    background-color: #f98aa2;
+    position: relative;
+    border: 2px solid white;
+}
+#btn-flappy{
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 30px;
+    margin-top: 300px;
+}
+.game-3 {
+    width: 25%;
+    height: 75%;
+    margin-left: 550px;
+    margin-top: -380px;
+    background-color: #f98aa2;
+    position: relative;
+    border: 2px solid white;
+}
+#btn-snake{
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 30px;
+    margin-top: 300px;
+}
+#myCanvas-arkonoid {
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    background-color: #f98aa2;
+    position: relative;
+}
+#countdown-arkanoid{
+    color: #f98aa2;
+    font-size: 50px;
+    text-align: center;
+}
+#countdown-flappy{
+    color: #f98aa2;
+    font-size: 50px;
+    text-align: center;
+}
+#btn-calico{
+    background: #f98aa2;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.world{
+    position: absolute;
+}
+.block-grey{
+    position: relative;
+    width: 45px;
+    height: 100%;
+    animation: blockAnimation 2s infinite linear;
+}
+.hole{
+    width: 46px;
+    height: 150px;
+    position: relative;
+    margin-left: -50px;
+    margin-bottom: 220px;
+    animation: blockAnimation 2s infinite linear;
+}
+.hole, .block-grey{
+    left: 450px;
+}
+.score{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color:white;
+    font-size: 20px;
+    font-weight: normal;
+
+}
+.calico-bird{
+    width: 55px;
+    height: 45px;
+    position: relative;
+    left: 300px;
+}
+#go-up {
+    animation: rotateUp 0.2s;
+    animation-fill-mode:forwards;
+}
+#go-down {
+    animation: rotateDown 0.2s;
+    animation-fill-mode:forwards;
+}
+
+@keyframes rotateUp {
+    0% { transform: rotate( 0deg ) }
+    100% { transform: rotate( -35deg ) }
+}
+@keyframes rotateDown {
+    0% { transform: rotate( 0deg ) }
+    100% { transform: rotate( 35deg ) }
+}
+
+@keyframes blockAnimation {
+    0% { left: 100vh; }
+    100% { left: 0px; }
+}
