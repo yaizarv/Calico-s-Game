@@ -219,3 +219,9 @@
     0% { left: 100vh; }
     100% { left: 0px; }
 }
+.star{
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    left: 600px;
+}
