@@ -165,63 +165,99 @@
 .world{
     position: absolute;
 }
-.block-grey{
-    position: relative;
-    width: 45px;
-    height: 100%;
-    animation: blockAnimation 2s infinite linear;
-}
-.hole{
-    width: 46px;
-    height: 150px;
-    position: relative;
-    margin-left: -50px;
-    margin-bottom: 220px;
-    animation: blockAnimation 2s infinite linear;
-}
-.hole, .block-grey{
-    left: 450px;
-}
-.score{
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color:white;
-    font-size: 20px;
-    font-weight: normal;
-
-}
 .calico-bird{
     width: 55px;
     height: 45px;
-    position: relative;
-    left: 300px;
-}
-#go-up {
-    animation: rotateUp 0.2s;
-    animation-fill-mode:forwards;
-}
-#go-down {
-    animation: rotateDown 0.2s;
-    animation-fill-mode:forwards;
-}
-
-@keyframes rotateUp {
-    0% { transform: rotate( 0deg ) }
-    100% { transform: rotate( -35deg ) }
-}
-@keyframes rotateDown {
-    0% { transform: rotate( 0deg ) }
-    100% { transform: rotate( 35deg ) }
-}
-
-@keyframes blockAnimation {
-    0% { left: 100vh; }
-    100% { left: 0px; }
-}
-.star{
-    width: 45px;
-    height: 45px;
     position: absolute;
-    left: 600px;
+}
+.calico-bird-title{
+    color: white;
+    text-align: center;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 100px;
+    margin-left: 50px;
+    line-height: 40px;
+}
+.calico-bird-text{
+    color: white;
+    text-align: center;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-left: 50px;
+    line-height: 30px;
+}
+#btn-monedas{
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    margin-left: 300px;
+    margin-top: 40px;
+    border-radius: 30px;
+    font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.countdown-contador-monedas{
+    position: absolute;
+    top: 80px;
+}
+.texto-contador-monedas{
+    color: white;
+    position: relative;
+}
+.star-1{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50px;
+    top: 400px;
+}
+.star-2{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50px;
+    top: 350px;
+}
+.star-3{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50px;
+    top: 300px;
+}
+#counter-label{
+    color: white;
+    position: relative;
+    text-align: center;
+    top: -260px;
+    left: 400px;
+}
+#counter-time{
+    color: white;
+    position: relative;
+    text-align: center;
+    top: -300px;
+    left: 500px;
+}
+.gafas{
+    position: relative;
+    width: 50px;
+    height: 30px;
+    left: 400px;
+    top: 100px;
+}
+.gafas-title{
+    width: 100px;
+    height: 50px;
+    position: relative;
+    left: 375px;
 }
