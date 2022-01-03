@@ -1,4 +1,6 @@
 let world, calico
+let mLeftBall = 0;
+let mTopBall = 0;
 let velocidad = 50;
 let mLeft = 0;
 let mTop = 0;
@@ -11,6 +13,7 @@ let lost = new Audio("/styles/audio/lost.mpeg");
 function getElements() {
     world = document.querySelector( '.world' )
     calico = document.querySelector( '.calico-bird' )
+    ball = document.querySelector('.ball')
 }
 document.addEventListener("keydown", function(e){
     if (e.keyCode == "39"){
@@ -35,6 +38,17 @@ function moverDerecha(){
     }
     calico.style.marginLeft = mLeft + "px"
 }
+setInterval(function moverBolaDrchaAbajo(){
+    mLeftBall += velocidad;
+    mTopBall += velocidad;
+    if (mTopBall > 500){
+        mTopBall = 0
+        mLeftBall = 0;
+    }
+    ball.style.marginLeft = mLeftBall + "px"
+    ball.style.marginTop = mTopBall + "px"
+}, 1000)
+
 function moverIzquierda(){
     mLeft -= velocidad;
     movements.play();
@@ -42,6 +56,16 @@ function moverIzquierda(){
         mLeft = -50
     }
     calico.style.marginLeft = mLeft + "px"
+}
+function moverBolaIzqAbajo(){
+    mLeftBall -= velocidad;
+    mTopBall -= velocidad;
+    if (mTopBall <= 0) {
+        mLeftBall += mLeftBall
+        mTopBall += mTopBall
+    }
+    ball.style.marginLeft = mLeftBall + "px"
+    ball.style.marginTop = mTopBall + "px"
 }
 function moverArriba(){
     mTop -= velocidad;
@@ -92,6 +116,8 @@ setInterval(function endGame(){
 function gameInit() {
     getElements()
     moverDerecha()
+    moverBolaDrchaAbajo()
+    colision()
     moverIzquierda()
     moverArriba()
     moverAbajo()
