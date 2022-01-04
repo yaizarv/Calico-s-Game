@@ -1,20 +1,29 @@
-let world, calico
+let world, calico, ball, ballGreen, ballPink, ballYellow
 let mLeftBall = 0;
 let mTopBall = 0;
+let mLeftBallGreen = 750;
+let mTopBallGreen = 0;
+let mLeftBallPink = -50;
+let mTopBallPink = 250;
 let velocidad = 50;
 let mLeft = 0;
 let mTop = 0;
 let score = 0;
 let audio_moneda = new Audio("/styles/audio/audio-moneda.mpeg");
 let movements = new Audio("/styles/audio/movements.mpeg");
-let tunnel = new Audio("styles/audio/tunnel.mpeg");
 let lost = new Audio("/styles/audio/lost.mpeg");
+
+//Coger elementos en el DOM
 
 function getElements() {
     world = document.querySelector( '.world' )
     calico = document.querySelector( '.calico-bird' )
     ball = document.querySelector('.ball')
+    ballGreen = document.querySelector('.ball-green')
+    ballPink = document.querySelector('.ball-pink')
 }
+
+//Eventos de teclas
 document.addEventListener("keydown", function(e){
     if (e.keyCode == "39"){
         moverDerecha();
@@ -30,6 +39,7 @@ document.addEventListener("keydown", function(e){
     }
 })
 
+//Movimientos de Calico
 function moverDerecha(){
     mLeft += velocidad;
     movements.play();
@@ -38,16 +48,6 @@ function moverDerecha(){
     }
     calico.style.marginLeft = mLeft + "px"
 }
-setInterval(function moverBolaDrchaAbajo(){
-    mLeftBall += velocidad;
-    mTopBall += velocidad;
-    if (mTopBall > 500){
-        mTopBall = 0
-        mLeftBall = 0;
-    }
-    ball.style.marginLeft = mLeftBall + "px"
-    ball.style.marginTop = mTopBall + "px"
-}, 1000)
 
 function moverIzquierda(){
     mLeft -= velocidad;
@@ -56,16 +56,6 @@ function moverIzquierda(){
         mLeft = -50
     }
     calico.style.marginLeft = mLeft + "px"
-}
-function moverBolaIzqAbajo(){
-    mLeftBall -= velocidad;
-    mTopBall -= velocidad;
-    if (mTopBall <= 0) {
-        mLeftBall += mLeftBall
-        mTopBall += mTopBall
-    }
-    ball.style.marginLeft = mLeftBall + "px"
-    ball.style.marginTop = mTopBall + "px"
 }
 function moverArriba(){
     mTop -= velocidad;
@@ -83,11 +73,61 @@ function moverAbajo(){
     }
     calico.style.top = mTop + "px"
 }
+
+//movimiento bola azul
+function bolaAzul(){
+    mLeftBall += velocidad;
+    mTopBall += velocidad;
+    if (mLeft == mLeftBall && mTop == mTopBall){
+        window.alert("colision con azul");
+        } else {
+            console.log("no hay colision con azul");
+        }
+    if (mTopBall > 500){
+        mTopBall = 0;
+        mLeftBall = 0;
+    }
+    ball.style.left = mLeftBall + "px"
+    ball.style.top = mTopBall + "px"
+}
+
+//movimiento bola verde
+function bolaVerde(){
+    mLeftBallGreen = mLeftBallGreen - velocidad;
+    mTopBallGreen = mTopBallGreen + velocidad;
+    if (mLeft == mLeftBallGreen && mTop == mTopBallGreen){
+        window.alert("colision con verde");
+        } else {
+            console.log("no hay colision con verde");
+        }
+    if (mTopBallGreen > 500){
+        mTopBallGreen = 0;
+        mLeftBallGreen = 750;
+    }
+    ballGreen.style.left = mLeftBallGreen + "px"
+    ballGreen.style.top = mTopBallGreen + "px"
+}
+
+//movimiento bola rosa
+function bolaRosa(){
+    mLeftBallPink = mLeftBallPink + velocidad;
+    if (mLeft == mLeftBallPink && mTop == mTopBallPink){
+        window.alert("colision con rosa");
+        } else {
+            console.log("no hay colision con rosa");
+        }
+    if (mLeftBallPink > 750){
+        mLeftBallPink = 0;
+    }
+    ballPink.style.left = mLeftBallPink + "px"
+    ballPink.style.top = mTopBallPink + "px"
+}
+
 //detección de superpoder
 setInterval(function superPower(){
     var positionX = parseFloat(calico.style.marginLeft)
     var positionY = parseFloat(calico.style.top)
-    if (positionX==400 && positionY==100){
+    if (positionX==600 && positionY==400){
         window.location = '/flappy/flappy-coins.html';
         tunnel.play();
     }
@@ -116,7 +156,9 @@ setInterval(function endGame(){
 function gameInit() {
     getElements()
     moverDerecha()
-    moverBolaDrchaAbajo()
+    bolaAzul()
+    bolaVerde()
+    bolaRosa()
     colision()
     moverIzquierda()
     moverArriba()
