@@ -107,7 +107,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     margin-left: 30px;
-    margin-top: 300px;
+    margin-top: 100px;
 }
 .game-3 {
     width: 25%;
@@ -217,29 +217,71 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    left: 50px;
-    top: 400px;
+    left: 100px;
+    top: 100px;
 }
 .star-2{
     width: 30px;
     height: 30px;
     position: absolute;
-    left: 50px;
-    top: 350px;
+    left: 200px;
+    top: 100px;
 }
 .star-3{
     width: 30px;
     height: 30px;
     position: absolute;
-    left: 50px;
+    left: 400px;
+    top: 100px;
+}
+.star-4{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 400px;
+    top: 400px;
+}
+.star-5{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 400px;
     top: 300px;
+}
+.star-6{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 200px;
+    top: 400px;
+}
+.muerte-1{
+    width: 25px;
+    height: 30px;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+}
+.muerte-2{
+    width: 25px;
+    height: 30px;
+    position: absolute;
+    left: 400px;
+    top: 200px;
+}
+.muerte-3{
+    width: 25px;
+    height: 30px;
+    position: absolute;
+    left: 100px;
+    top: 400px;
 }
 #counter-label{
     color: white;
     position: relative;
     text-align: center;
     top: -260px;
-    left: 400px;
+    left: 350px;
 }
 #counter-time{
     color: white;
@@ -249,11 +291,11 @@
     left: 500px;
 }
 .gafas{
-    position: absolute;
+    position: relative;
     width: 50px;
     height: 30px;
-    left: 600px;
-    top: 400px;
+    left: 400px;
+    top: 200px;
 }
 .ball{
     position: relative;
@@ -266,13 +308,27 @@
     position: relative;
     width: 25px;
     height: 25px;
-    left: 750px;
+    left: 450px;
     top: 0px;
 }
 .ball-pink{
     position: relative;
     width: 25px;
     height: 25px;
-    left: -50px;
-    top: 250px;
+    left: 0px;
+    top: 200px;
+}
+.ball-yellow{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    left: 0px;
+    top: 400px;
+}
+.ball-red{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    left: 500px;
+    top: 200px;
 }

@@ -1,10 +1,16 @@
-let world, calico, ball, ballGreen, ballPink, ballYellow
+let world, calico, ballBlue, ballGreen, ballPink, ballYellow, ballRed, gafas
 let mLeftBall = 0;
 let mTopBall = 0;
-let mLeftBallGreen = 750;
+let mLeftBallGreen = 450;
 let mTopBallGreen = 0;
 let mLeftBallPink = -50;
-let mTopBallPink = 250;
+let mTopBallPink = 200;
+let mLeftBallYellow = -75;
+let mTopBallYellow = 475;
+let mLeftBallRed = 500;
+let mTopBallRed = 200;
+let mLeftGafas = 400;
+let mTopGafas = 200;
 let velocidad = 50;
 let mLeft = 0;
 let mTop = 0;
@@ -18,9 +24,12 @@ let lost = new Audio("/styles/audio/lost.mpeg");
 function getElements() {
     world = document.querySelector( '.world' )
     calico = document.querySelector( '.calico-bird' )
-    ball = document.querySelector('.ball')
+    ballBlue = document.querySelector('.ball')
     ballGreen = document.querySelector('.ball-green')
     ballPink = document.querySelector('.ball-pink')
+    ballYellow = document.querySelector('.ball-yellow')
+    ballRed = document.querySelector('.ball-red')
+    gafas = document.querySelector('.gafas')
 }
 
 //Eventos de teclas
@@ -52,8 +61,8 @@ function moverDerecha(){
 function moverIzquierda(){
     mLeft -= velocidad;
     movements.play();
-    if (mLeft < -50){
-        mLeft = -50
+    if (mLeft < 0){
+        mLeft = 0
     }
     calico.style.marginLeft = mLeft + "px"
 }
@@ -73,9 +82,20 @@ function moverAbajo(){
     }
     calico.style.top = mTop + "px"
 }
+//colisión con gafas
+function superpoder(){
+    if(mLeft==mLeftGafas && mTop==mTopGafas){
+        console.log("estoy aquí");
+        window.location.href = "/flappy/flappy-coins.html"
+    } else {
+        console.log("no hay colisión con gafas")
+    }
+    gafas.style.left = mLeftGafas + "px"
+    gafas.style.top = mTopGafas + "px"
+}
 
 //movimiento bola azul
-function bolaAzul(){
+setInterval(function bolaAzul(){
     mLeftBall += velocidad;
     mTopBall += velocidad;
     if (mLeft == mLeftBall && mTop == mTopBall){
@@ -83,16 +103,16 @@ function bolaAzul(){
         } else {
             console.log("no hay colision con azul");
         }
-    if (mTopBall > 500){
+    if (mTopBall > 450){
         mTopBall = 0;
         mLeftBall = 0;
     }
-    ball.style.left = mLeftBall + "px"
-    ball.style.top = mTopBall + "px"
-}
+    ballBlue.style.left = mLeftBall + "px"
+    ballBlue.style.top = mTopBall + "px"
+}, 1000)
 
 //movimiento bola verde
-function bolaVerde(){
+setInterval(function bolaVerde(){
     mLeftBallGreen = mLeftBallGreen - velocidad;
     mTopBallGreen = mTopBallGreen + velocidad;
     if (mLeft == mLeftBallGreen && mTop == mTopBallGreen){
@@ -100,43 +120,66 @@ function bolaVerde(){
         } else {
             console.log("no hay colision con verde");
         }
-    if (mTopBallGreen > 500){
+    if (mTopBallGreen > 450){
         mTopBallGreen = 0;
-        mLeftBallGreen = 750;
+        mLeftBallGreen = 450;
     }
     ballGreen.style.left = mLeftBallGreen + "px"
     ballGreen.style.top = mTopBallGreen + "px"
-}
+}, 1000)
 
 //movimiento bola rosa
-function bolaRosa(){
+setInterval(function bolaRosa(){
     mLeftBallPink = mLeftBallPink + velocidad;
     if (mLeft == mLeftBallPink && mTop == mTopBallPink){
         window.alert("colision con rosa");
         } else {
             console.log("no hay colision con rosa");
         }
-    if (mLeftBallPink > 750){
+    if (mLeftBallPink > 500){
         mLeftBallPink = 0;
     }
     ballPink.style.left = mLeftBallPink + "px"
     ballPink.style.top = mTopBallPink + "px"
-}
-
-//detección de superpoder
-setInterval(function superPower(){
-    var positionX = parseFloat(calico.style.marginLeft)
-    var positionY = parseFloat(calico.style.top)
-    if (positionX==600 && positionY==400){
-        window.location = '/flappy/flappy-coins.html';
-        tunnel.play();
-    }
 }, 1000)
+
+//movimiento bola amarilla
+setInterval(function bolaAmarilla(){
+    mLeftBallYellow = mLeftBallYellow + velocidad;
+    mTopBallYellow = mTopBallYellow - velocidad;
+    if (mLeft == mLeftBallYellow && mTop == mTopBallYellow){
+        window.alert ("colisión con amarillo");
+        } else {
+            console.log("no hay colisión con amarillo");
+        }
+    if (mLeftBallYellow > 400){
+        mLeftBallYellow = 100;
+        mTopBallYellow = 400;
+        console.log("estoy aquí")
+    }
+    ballYellow.style.left = mLeftBallYellow + "px"
+    ballYellow.style.top = mTopBallYellow + "px"
+}, 1000)
+
+//movimiento bola roja
+setInterval(function bolaRoja(){
+    mLeftBallRed = mLeftBallRed - velocidad;
+    if (mLeft == mLeftBallRed && mTop == mTopBallRed){
+        window.alert("hay colisión con rojo")
+    } else {
+        console.log("no hay colisión con rojo")
+    }
+    if (mLeftBallRed < 0){
+        mLeftBallRed = 500;
+    }
+    ballRed.style.left = mLeftBallRed + "px"
+    ballRed.style.top = mTopBallRed + "px"
+}, 1000)
+
 //detección de estrellas = suman puntos
 setInterval(function colisionStars(){
-    var positionX = parseFloat(calico.style.marginLeft)
-    var positionY = parseFloat(calico.style.top)
-    if (positionX==50 && positionY==400 || positionX==50 && positionY==350 || positionX==50 && positionY==300){
+    if (mLeft==100 && mTop==100 || mLeft==200 && mTop==100 || mLeft==400 && mTop==100 || mLeft==400 && mTop == 400 || mLeft==400 && mTop==300 || mLeft==200 && mTop==400){
+        console.log("he ganado")
         score++;
         document.getElementById("counter-label").innerHTML = score;
         audio_moneda.play();
@@ -144,9 +187,7 @@ setInterval(function colisionStars(){
 }, 1000)
 //detección de muerte = restar puntos
 setInterval(function endGame(){
-    var positionX = parseFloat(calico.style.marginLeft)
-    var positionY = parseFloat(calico.style.top)
-    if (positionX==100 && positionY==400){
+    if (mLeft==300 && mTop==100 || mLeft==400 && mTop==200 || mLeft==100 && mTop==400){
         score--;
         document.getElementById("counter-label").innerHTML = score;
         lost.play();
@@ -156,13 +197,14 @@ setInterval(function endGame(){
 function gameInit() {
     getElements()
     moverDerecha()
-    bolaAzul()
-    bolaVerde()
-    bolaRosa()
-    colision()
     moverIzquierda()
     moverArriba()
     moverAbajo()
+    bolaAzul()
+    bolaVerde()
+    bolaRosa()
+    bolaAmarilla()
+    bolaRoja()
     superPower()
     colisionStars()
     endGame()
