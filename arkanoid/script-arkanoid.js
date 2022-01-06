@@ -68,8 +68,8 @@ function collisionDetection() {
                     b.status = 0;
                     score++;
                     if(score == brickRowCount*brickColumnCount) {
-                        window.alert("Ya queda menos para ser un super hacker.¡Tienes premio!");
-                        document.location="/success-1.html";
+                        window.alert("Ya queda menos para ser un super hacker.");
+                        document.location="/selector.html";
                     }
                 }
             }
@@ -80,14 +80,14 @@ function collisionDetection() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#FFF16C";
     ctx.fill();
     ctx.closePath();
 }
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#7F7F7F";
     ctx.fill();
     ctx.closePath();
 }
@@ -101,7 +101,7 @@ function drawBricks() {
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#0095DD";
+                ctx.fillStyle = "#F4F4F4";
                 ctx.fill();
                 ctx.closePath();
             }
@@ -110,12 +110,12 @@ function drawBricks() {
 }
 function drawScore() {
     ctx.font = "9px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#7F7F7F";
     ctx.fillText("Score: " + score, 8, 20);
 }
 function drawLives() {
     ctx.font = "9px Arial";
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#7F7F7F";
     ctx.fillText("Lives: "+lives, canvas.width-65, 20);
 }
 
