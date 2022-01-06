@@ -55,7 +55,7 @@ function moverDerecha(){
     if (mLeft > 700){
         mLeft = 700
     }
-    calico.style.marginLeft = mLeft + "px"
+    calico.style.marginLeft = mLeft + "px";
 }
 
 function moverIzquierda(){
@@ -64,7 +64,7 @@ function moverIzquierda(){
     if (mLeft < 0){
         mLeft = 0
     }
-    calico.style.marginLeft = mLeft + "px"
+    calico.style.marginLeft = mLeft + "px";
 }
 function moverArriba(){
     mTop -= velocidad;
@@ -72,7 +72,7 @@ function moverArriba(){
     if (mTop < 0){
         mTop = 0
     }
-    calico.style.top = mTop + "px"
+    calico.style.top = mTop + "px";
 }
 function moverAbajo(){
     mTop += velocidad;
@@ -80,78 +80,65 @@ function moverAbajo(){
     if (mTop > 450){
         mTop = 450
     }
-    calico.style.top = mTop + "px"
+    calico.style.top = mTop + "px";
 }
 //colisión con gafas
-function superpoder(){
-    if(mLeft==mLeftGafas && mTop==mTopGafas){
-        console.log("estoy aquí");
-        window.location.href = "/flappy/flappy-coins.html"
-    } else {
-        console.log("no hay colisión con gafas")
+setInterval(function superPoder(){
+    if (mLeft==mLeftGafas && mTop==mTopGafas){
+        window.location = "/flappy/flappy-coins.html"
     }
-    gafas.style.left = mLeftGafas + "px"
-    gafas.style.top = mTopGafas + "px"
-}
+}, 1000)
 
 //movimiento bola azul
-setInterval(function bolaAzul(){
+function bolaAzul(){
     mLeftBall += velocidad;
     mTopBall += velocidad;
     if (mLeft == mLeftBall && mTop == mTopBall){
         window.alert("colision con azul");
-        } else {
-            console.log("no hay colision con azul");
-        }
+        } 
     if (mTopBall > 450){
         mTopBall = 0;
         mLeftBall = 0;
     }
     ballBlue.style.left = mLeftBall + "px"
     ballBlue.style.top = mTopBall + "px"
-}, 1000)
+}
 
 //movimiento bola verde
-setInterval(function bolaVerde(){
+function bolaVerde(){
     mLeftBallGreen = mLeftBallGreen - velocidad;
     mTopBallGreen = mTopBallGreen + velocidad;
     if (mLeft == mLeftBallGreen && mTop == mTopBallGreen){
         window.alert("colision con verde");
-        } else {
-            console.log("no hay colision con verde");
-        }
+        } 
     if (mTopBallGreen > 450){
         mTopBallGreen = 0;
         mLeftBallGreen = 450;
     }
     ballGreen.style.left = mLeftBallGreen + "px"
     ballGreen.style.top = mTopBallGreen + "px"
-}, 1000)
+}
 
 //movimiento bola rosa
-setInterval(function bolaRosa(){
+function bolaRosa(){
     mLeftBallPink = mLeftBallPink + velocidad;
     if (mLeft == mLeftBallPink && mTop == mTopBallPink){
         window.alert("colision con rosa");
-        } else {
-            console.log("no hay colision con rosa");
-        }
+        } 
     if (mLeftBallPink > 500){
         mLeftBallPink = 0;
     }
     ballPink.style.left = mLeftBallPink + "px"
     ballPink.style.top = mTopBallPink + "px"
-}, 1000)
+}
 
 //movimiento bola amarilla
-setInterval(function bolaAmarilla(){
+function bolaAmarilla(){
     mLeftBallYellow = mLeftBallYellow + velocidad;
     mTopBallYellow = mTopBallYellow - velocidad;
     if (mLeft == mLeftBallYellow && mTop == mTopBallYellow){
         window.alert ("colisión con amarillo");
-        } else {
-            console.log("no hay colisión con amarillo");
-        }
+        } 
     if (mLeftBallYellow > 400){
         mLeftBallYellow = 100;
         mTopBallYellow = 400;
@@ -159,22 +146,20 @@ setInterval(function bolaAmarilla(){
     }
     ballYellow.style.left = mLeftBallYellow + "px"
     ballYellow.style.top = mTopBallYellow + "px"
-}, 1000)
+}
 
 //movimiento bola roja
-setInterval(function bolaRoja(){
+function bolaRoja(){
     mLeftBallRed = mLeftBallRed - velocidad;
     if (mLeft == mLeftBallRed && mTop == mTopBallRed){
         window.alert("hay colisión con rojo")
-    } else {
-        console.log("no hay colisión con rojo")
-    }
+    } 
     if (mLeftBallRed < 0){
         mLeftBallRed = 500;
     }
     ballRed.style.left = mLeftBallRed + "px"
     ballRed.style.top = mTopBallRed + "px"
-}, 1000)
+}
 
 //detección de estrellas = suman puntos
 setInterval(function colisionStars(){
@@ -187,7 +172,7 @@ setInterval(function colisionStars(){
 }, 1000)
 //detección de muerte = restar puntos
 setInterval(function endGame(){
-    if (mLeft==300 && mTop==100 || mLeft==400 && mTop==200 || mLeft==100 && mTop==400){
+    if (mLeft==300 && mTop==100 || mLeft==100 && mTop==400){
         score--;
         document.getElementById("counter-label").innerHTML = score;
         lost.play();
@@ -205,7 +190,7 @@ function gameInit() {
     bolaRosa()
     bolaAmarilla()
     bolaRoja()
-    superPower()
+    superPoder()
     colisionStars()
     endGame()
 }
