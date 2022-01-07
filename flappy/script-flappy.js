@@ -90,76 +90,75 @@ setInterval(function superPoder(){
 }, 1000)
 
 //movimiento bola azul
-function bolaAzul(){
+setInterval(function bolaAzul(){
     mLeftBall += velocidad;
     mTopBall += velocidad;
     if (mLeft == mLeftBall && mTop == mTopBall){
-        window.alert("colision con azul");
+        window.alert("Te ha alcanzado la bola azul")
         } 
     if (mTopBall > 450){
         mTopBall = 0;
         mLeftBall = 0;
     }
-    ballBlue.style.left = mLeftBall + "px"
-    ballBlue.style.top = mTopBall + "px"
-}
+    ballBlue.style.left = mLeftBall + "px";
+    ballBlue.style.top = mTopBall + "px";
+}, 1000)
 
 //movimiento bola verde
-function bolaVerde(){
+setInterval(function bolaVerde(){
     mLeftBallGreen = mLeftBallGreen - velocidad;
     mTopBallGreen = mTopBallGreen + velocidad;
     if (mLeft == mLeftBallGreen && mTop == mTopBallGreen){
-        window.alert("colision con verde");
+        window.alert("Te ha alcanzado la bola verde");
         } 
     if (mTopBallGreen > 450){
         mTopBallGreen = 0;
         mLeftBallGreen = 450;
     }
-    ballGreen.style.left = mLeftBallGreen + "px"
-    ballGreen.style.top = mTopBallGreen + "px"
-}
+    ballGreen.style.left = mLeftBallGreen + "px";
+    ballGreen.style.top = mTopBallGreen + "px";
+}, 1000)
 
 //movimiento bola rosa
-function bolaRosa(){
+setInterval(function bolaRosa(){
     mLeftBallPink = mLeftBallPink + velocidad;
     if (mLeft == mLeftBallPink && mTop == mTopBallPink){
-        window.alert("colision con rosa");
+        window.alert("Te ha alcanzado la bola rosa");
         } 
     if (mLeftBallPink > 500){
         mLeftBallPink = 0;
     }
-    ballPink.style.left = mLeftBallPink + "px"
-    ballPink.style.top = mTopBallPink + "px"
-}
+    ballPink.style.left = mLeftBallPink + "px";
+    ballPink.style.top = mTopBallPink + "px";
+}, 1000)
 
 //movimiento bola amarilla
-function bolaAmarilla(){
+setInterval(function bolaAmarilla(){
     mLeftBallYellow = mLeftBallYellow + velocidad;
     mTopBallYellow = mTopBallYellow - velocidad;
     if (mLeft == mLeftBallYellow && mTop == mTopBallYellow){
-        window.alert ("colisión con amarillo");
+        window.alert ("Te ha alcanzado la bola amarilla");
         } 
     if (mLeftBallYellow > 400){
         mLeftBallYellow = 100;
         mTopBallYellow = 400;
-        console.log("estoy aquí")
     }
     ballYellow.style.left = mLeftBallYellow + "px"
     ballYellow.style.top = mTopBallYellow + "px"
-}
+}, 1000)
 
 //movimiento bola roja
-function bolaRoja(){
+setInterval(function bolaRoja(){
     mLeftBallRed = mLeftBallRed - velocidad;
-    if (mLeft == mLeftBallRed && mTop == mTopBallRed){
-        window.alert("hay colisión con rojo")
+    if (mLeft==mLeftBall && mTop == mTopBallRed){
+        window.alert("Te ha alcanzado la bola roja");
     } 
     if (mLeftBallRed < 0){
         mLeftBallRed = 500;
     }
-    ballRed.style.left = mLeftBallRed + "px"
-    ballRed.style.top = mTopBallRed + "px"
-}
+    ballRed.style.left = mLeftBallRed + "px";
+    ballRed.style.top = mTopBallRed + "px";
+}, 1000)
 
 //detección de estrellas = suman puntos
 setInterval(function colisionStars(){
